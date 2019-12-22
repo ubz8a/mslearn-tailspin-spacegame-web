@@ -1,14 +1,14 @@
 trigger:
     - '*'
   
-  pool:
+pool:
     vmImage: 'ubuntu-latest'
   
-  variables:
+variables:
     buildConfiguration: 'Release'
     demands: npm
   
-  steps:
+steps:
     - task: UseDotNet@2
       displayName: 'Use .NET Core SDK 2.1.505'
       inputs:
