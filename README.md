@@ -1,3 +1,4 @@
+[![Build Status](https://ubz8a.visualstudio.com/Devops%20Demo%20Generator/_apis/build/status/ubz8a.mslearn-tailspin-spacegame-web?branchName=master)](https://ubz8a.visualstudio.com/Devops%20Demo%20Generator/_build/latest?definitionId=4&branchName=master)
 
 # Contributing
 
