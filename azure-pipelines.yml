@@ -83,14 +83,14 @@ steps:
     displayName: 'Create code coverage report'
         
   - task: SonarCloudAnalyze@1
-      displayName: 'Run SonarCloud code analysis'
-      condition: |
-        and
-        (
-          succeeded(),
-          eq(variables['Build.Reason'], 'PullRequest'),
-          eq(variables['System.PullRequest.TargetBranch'], 'master')
-        )
+    displayName: 'Run SonarCloud code analysis'
+    condition: |
+      and
+      (
+        succeeded(),
+        eq(variables['Build.Reason'], 'PullRequest'),
+        eq(variables['System.PullRequest.TargetBranch'], 'master')
+      )
         
   - task: SonarCloudPublish@1
     displayName: 'Publish SonarCloud quality gate results'
@@ -109,13 +109,13 @@ steps:
       summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
         
   - task: DotNetCoreCLI@2
-      displayName: 'Publish the project - $(buildConfiguration)'
-      inputs:
-        command: 'publish'
-        projects: '**/*.csproj'
-        publishWebProjects: false
-        arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
-        zipAfterPublish: true
+    displayName: 'Publish the project - $(buildConfiguration)'
+    inputs:
+      command: 'publish'
+      projects: '**/*.csproj'
+      publishWebProjects: false
+      arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+      zipAfterPublish: true
         
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
